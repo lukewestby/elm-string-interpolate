@@ -34,10 +34,10 @@ applyInterpolation replacements match =
   in
     case ordinal of
       Err message ->
-        ordinalString
+        ""
       Ok value ->
         case get value replacements of
           Nothing ->
-            "no value"
+            ""
           Just replacement ->
             replacement

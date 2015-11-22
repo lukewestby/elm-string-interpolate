@@ -1,0 +1,18 @@
+{
+    "version": "1.0.0",
+    "summary": "Inject values from a list into a template. Useful for i18n and templated copy.",
+    "repository": "https://github.com/user/project.git",
+    "license": "MIT",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [
+        "String.Interpolate"
+    ],
+    "dependencies": {
+        "deadfoxygrandpa/elm-test": "3.0.0 <= v < 4.0.0",
+        "elm-lang/core": "3.0.0 <= v < 4.0.0",
+        "laszlopandy/elm-console": "1.0.2 <= v < 2.0.0"
+    },
+    "elm-version": "0.16.0 <= v < 0.17.0"
+}

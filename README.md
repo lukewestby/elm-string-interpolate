@@ -1,4 +1,5 @@
 # String.Interpolate
+[![Build Status](https://travis-ci.org/lukewestby/elm-string-interpolate.svg)](https://travis-ci.org/lukewestby/elm-string-interpolate)
 
 Inject values from a list into a template. Useful for i18n and templated copy.
 

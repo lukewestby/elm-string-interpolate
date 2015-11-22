@@ -1,6 +1,5 @@
 module String.Interpolate(interpolate) where
 
-
 {-| String.Interpolate provides a convenient method `interpolate` for injecting
 values into a string. This can be useful for i18n of apps and construction of
 complex strings in views.

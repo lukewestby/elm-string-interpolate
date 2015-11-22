@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "Inject values from a list into a template. Useful for i18n and templated copy.",
-    "repository": "https://github.com/user/project.git",
+    "repository": "https://github.com/lukewestby/elm-string-interpolate.git",
     "license": "MIT",
     "source-directories": [
         "src"

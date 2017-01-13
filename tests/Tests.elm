@@ -1,14 +1,19 @@
-import Task
-import Console
-import ElmTest exposing (test, Test, suite, assertEqual, stringRunner, consoleRunner)
+module Tests exposing (..)
+
+import Test exposing (..)
+import Expect
+import Fuzz exposing (list, int, tuple, string)
+import String
 import String.Interpolate exposing (interpolate)
 
-tests : Test
-tests =
-  suite "String.Interpolate.interpolate"
-    [ test "Ordered interpolation" (assertEqual (interpolate "{0} {2} {1}" ["hello", "!!", "world"]) "hello world !!")
-    ]
-
-port runner : Signal (Task.Task x ())
-port runner =
-    Console.run (consoleRunner tests)
+all : Test
+all =
+    describe "Sample Test Suite"
+        [ describe "Unit test examples"
+            [ test "Addition" <|
+                \() ->
+                  let interpolated = interpolate "{0} {2} {1}" ["hello", "!!", "world"]
+                  in
+                    Expect.equal interpolated "hello world !!"
+            ]
+        ]

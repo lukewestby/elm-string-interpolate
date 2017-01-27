@@ -1,4 +1,4 @@
-module String.Interpolate(interpolate) where
+module String.Interpolate exposing (interpolate)
 
 {-| String.Interpolate provides a convenient method `interpolate` for injecting
 values into a string. This can be useful for i18n of apps and construction of

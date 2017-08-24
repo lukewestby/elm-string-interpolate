@@ -5,5 +5,6 @@ install:
 before_script:
   - cd tests
   - elm-make --yes --output ../raw-test.js Tests.elm
+  - cd ..
 script: 
   - elm-test

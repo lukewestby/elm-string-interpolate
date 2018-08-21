@@ -3,7 +3,7 @@
     "name": "lukewestby/elm-string-interpolate",
     "summary": "Inject values from a list into a template. Useful for i18n and templated copy.",
     "license": "MIT",
-    "version": "2.0.0",
+    "version": "1.0.3",
     "exposed-modules": [
         "String.Interpolate"
     ],

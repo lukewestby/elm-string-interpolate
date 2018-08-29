@@ -19,8 +19,3 @@ output =
 
 main = show output {- "My name is Luke Westby" -}
 ```
-
-## Contributing
-
-PRs happily accepted! Accepting any and all suggestions as I am still new to
-Elm.

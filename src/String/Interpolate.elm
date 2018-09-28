@@ -1,4 +1,4 @@
-module String.Interpolate exposing (interpolate)
+module String.Interpolate exposing (interpolate, interpolateWithDict)
 
 {-| String.Interpolate provides a convenient method `interpolate` for injecting
 values into a string. This can be useful for i18n of apps and construction of
@@ -9,6 +9,7 @@ complex strings in views.
 -}
 
 import Array exposing (Array, fromList, get)
+import Dict exposing (Dict)
 import Maybe exposing (andThen, withDefault)
 import Regex exposing (Match, Regex, fromString, never, replace)
 import String exposing (dropLeft, dropRight, toInt)
@@ -27,6 +28,11 @@ interpolate string args =
     replace interpolationRegex (applyInterpolation asArray) string
 
 
+interpolateWithDict : String -> Dict String String -> String
+interpolateWithDict string dict =
+    replace dictInterpolationRegex (applyDictInterpolation dict) string
+
+
 interpolationRegex : Regex
 interpolationRegex =
     fromString "\\{\\d+\\}" |> withDefault never
@@ -41,4 +47,19 @@ applyInterpolation replacements { match } =
     ordinalString
         |> toInt
         |> andThen (\value -> get value replacements)
+        |> withDefault ""
+
+
+dictInterpolationRegex : Regex
+dictInterpolationRegex =
+    fromString "\\{[\\w+\\s]*\\}" |> withDefault never
+
+
+applyDictInterpolation : Dict String String -> Match -> String
+applyDictInterpolation replacements { match } =
+    let
+        ordinalString =
+            (dropLeft 1 << dropRight 1) match
+    in
+    Dict.get ordinalString replacements
         |> withDefault ""

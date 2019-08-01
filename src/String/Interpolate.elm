@@ -29,7 +29,7 @@ interpolate string args =
 
 interpolationRegex : Regex
 interpolationRegex =
-    fromString "\\{\\d+\\}" |> withDefault never
+    fromString "\\{\\d+\\}" |> withDefault Regex.never
 
 
 applyInterpolation : Array String -> Match -> String

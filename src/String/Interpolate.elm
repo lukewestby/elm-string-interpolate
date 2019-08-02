@@ -14,9 +14,31 @@ import Regex exposing (Match, Regex, fromString, never, replace)
 import String exposing (dropLeft, dropRight, toInt)
 
 
-{-| Inject other strings into a string in the order they appear in a List
+{-| Inject other strings into a string. Elements in a list can be referenced
+by index to be inserted into the base string:
+
+```elm
 interpolate "{0} {2} {1}" ["hello", "!!", "world"]
+-- "hello world !!"
+```
+
+Occassionally it is nicer to use the function infix:
+
+```elm
 "{0} {2} {1}" `interpolate` ["hello", "!!", "world"]
+-- "hello world !!"
+```
+
+In cases where the supplied list is too short, an empty string is interpolated
+instead:
+
+```elm
+interpolate "{0} {2} {1}" ["hello", "world"]
+-- "hello  world"
+```
+
+In cases where the supplied list is *longer* than necessary, unused elements are
+simply ignored.
 -}
 interpolate : String -> List String -> String
 interpolate string args =
